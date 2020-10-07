@@ -1,28 +1,50 @@
 // import the React and ReactDOM libraries
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import faker from 'faker';
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
 
-// Create a react component
 const App = () =>{
     return ( 
         <div className="ui container comments">
-            <div className="comment">
-                <a href="/" className="avatar">
-                    <img alt="avatar" src="" />
-                </a>
-                <div className="content">
-                    <a href="/" className="author">
-                        Sam        
-                    </a>
-                    <div className="metadata">
-                        <span className="date">
-                            Today at 6:00 PM
-                        </span>
-                    </div>
-                    <div className="text">Nice blog post!</div>
+            <ApprovalCard>
+                <div>
+                    <h4>
+                        Warning!
+                    </h4>
+                    Sikker på at du vil dette?
                 </div>
-            </div>
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail 
+                        author="Sam" 
+                        timeAgo="12:00" 
+                        comment="Cool!" 
+                        avatar={faker.image.avatar()}
+                    />
+            </ApprovalCard>
+
+            <ApprovalCard>
+                <CommentDetail 
+                    author="Hans" 
+                    timeAgo="14:00"
+                    comment="Heeeey!" 
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>
+
+            <ApprovalCard>
+                <CommentDetail 
+                    author="June" 
+                    timeAgo="15:00" 
+                    comment="Wazzuppp!" 
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>
+
+
         </div>
     )
 };
