@@ -2,25 +2,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-function getButtonText(name) {
-    return "Click here! " + name;
-}
 
 // Create a react component
-//const App = () =>{
-const App = function(){
-
-    // const buttonText = 'Click Me!';
-    //const array = [1,"Hei"];
-    const object = {name: "Oscar", age: 55};
-
+const App = () =>{
     return ( 
-        <div>
-            <label className="label" htmlFor="name">Enter name:</label>
-            <input id="name" type="text" defaultValue={object.name} />
-            <button style={{backgroundColor: 'red', color: 'white'}}>
-                {getButtonText("Mette")}
-            </button>
+        <div className="ui container comments">
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img alt="avatar" src="" />
+                </a>
+                <div className="content">
+                    <a href="/" className="author">
+                        Sam        
+                    </a>
+                    <div className="metadata">
+                        <span className="date">
+                            Today at 6:00 PM
+                        </span>
+                    </div>
+                    <div className="text">Nice blog post!</div>
+                </div>
+            </div>
         </div>
     )
 };
