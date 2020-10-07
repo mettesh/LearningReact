@@ -1,53 +1,20 @@
 // import the React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import faker from 'faker';
-import CommentDetail from './CommentDetail';
-import ApprovalCard from './ApprovalCard';
 
+class App extends React.Component {
+    render() {
+        
+        // Kan ta tid før man får svar. Men koden går videre. 
+        // Lager to parametre hvor respons vil havne. Callbacks
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => console.log(position), //Successfull callback
+            (err) => console.log(err) // Failure callback
+        )
 
-const App = () =>{
-    return ( 
-        <div className="ui container comments">
-            <ApprovalCard>
-                <div>
-                    <h4>
-                        Warning!
-                    </h4>
-                    Sikker på at du vil dette?
-                </div>
-            </ApprovalCard>
-            <ApprovalCard>
-                <CommentDetail 
-                        author="Sam" 
-                        timeAgo="12:00" 
-                        comment="Cool!" 
-                        avatar={faker.image.avatar()}
-                    />
-            </ApprovalCard>
-
-            <ApprovalCard>
-                <CommentDetail 
-                    author="Hans" 
-                    timeAgo="14:00"
-                    comment="Heeeey!" 
-                    avatar={faker.image.avatar()}
-                />
-            </ApprovalCard>
-
-            <ApprovalCard>
-                <CommentDetail 
-                    author="June" 
-                    timeAgo="15:00" 
-                    comment="Wazzuppp!" 
-                    avatar={faker.image.avatar()}
-                />
-            </ApprovalCard>
-
-
-        </div>
-    )
-};
+        return <div className="ui container comments">Latitude:</div>
+    }
+}
 
 
 // Take the react component and show it on the screen
