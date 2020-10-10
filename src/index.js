@@ -16,10 +16,9 @@ class App extends React.Component {
             (err) => this.setState({ errorMessage: err.message })
         )
     }
-    
 
-    // React sier vi må definere render! (Feiler ellers)
-    render() {
+    renderContent () {
+
         if(this.state.errorMessage && !this.state.lat){
             return <div>Error: {this.state.errorMessage}</div>;
         }
@@ -29,6 +28,16 @@ class App extends React.Component {
         }
         
         return <Loader message="Finner din posisjon"/>;
+    }
+    
+
+    // React sier vi må definere render! (Feiler ellers)
+    render() {
+        return (
+            <div className="border">
+                {this.renderContent()}
+            </div>
+        )
     }
 }
 
