@@ -27,6 +27,7 @@ class App extends React.Component {
 
     }
     
+
     // React sier vi må definere render! (Feiler ellers)
     render() {
         if(this.state.errorMessage && !this.state.lat){
