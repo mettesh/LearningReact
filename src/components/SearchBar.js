@@ -4,23 +4,20 @@ class SearchBar extends React.Component {
 
     state = { term: ''};
 
-    // Metoden vil kjøres med Event-parameter sendt med automatisk
-    // Et objekt som inneholder informasjon om eventen som nettopp skjedde. 
-    // Blant annet value
-    //onInputChange(event) {
-        //console.log(event.target.value);
-    //}
 
-    onFormSubmit(event) {
+    onFormSubmit = (event) => {
         // Ønsker ikke å submit the form automatisk. Vil ikke oppdatere siden som er default. 
         event.preventDefault();
 
-        // console.log(this.state.term);
+        // onSubmit proppen til App vil nå få innholdet som er i state.term (Søkeordet)
+        this.props.onSubmit(this.state.term);
     }
 
     render () {
+        // onSubmit: Ved enter vil onFormSubmit kalles på.
         return (
             <div className="ui segment">
+                
                 <form className="ui form" onSubmit={this.onFormSubmit}>
                     <div className="field">
                         <label>Image search</label>
