@@ -5,8 +5,11 @@ import SearchBar from './SearchBar';
 
 
 class App extends React.Component {
+
+    state = { images: [] }
     
-    async onSearchSubmit(term) {
+    // Må fikse for å få riktig henvisning til riktig this. 
+    onSearchSubmit = async (term) => {
         // this = onSubmit. 
         // term vilnå inneholder søkeordet fra SearchBar (state.term)
 
@@ -23,13 +26,14 @@ class App extends React.Component {
             }
         });
 
-        console.log(response);
+        this.setState({ images: response.data.results });
     }
 
     render() {
         return (
             <div className="ui container" style={{ marginTop: '20px' }}>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
+                Found: {this.state.images.length} images
             </div>
         );
     }
